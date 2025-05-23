@@ -12,7 +12,7 @@ READWISE_TOKEN = os.getenv("READWISE_TOKEN")
 
 def get_starred_episodes():
     client = PocketCast(email=POCKETCASTS_EMAIL, password=POCKETCASTS_PASSWORD)
-    return client.starred[0:3]
+    return client.starred
 
 def send_episode_to_readwise(episode, rw: ReadwiseReader):
     try:
