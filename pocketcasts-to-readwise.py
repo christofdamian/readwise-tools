@@ -19,7 +19,7 @@ def send_episode_to_readwise(episode, rw: ReadwiseReader):
         rw.create_document(
             url="https://pca.st/episode/" + episode.uuid,
             title=episode.title,
-            summary=episode.show_notes,e
+            summary=episode.show_notes,
             tags=[
                 "podcast",
                 "friday",
