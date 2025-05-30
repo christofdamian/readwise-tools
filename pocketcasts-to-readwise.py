@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from pycketcasts import PocketCast
 from readwise import ReadwiseReader
 from dotenv import load_dotenv

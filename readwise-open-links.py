@@ -1,9 +1,9 @@
+#!/usr/bin/env python3
+
 import webbrowser
 import os
 from dotenv import load_dotenv
 from readwise import ReadwiseReader
-from datetime import datetime, timedelta
-from itertools import islice
 import argparse
 
 load_dotenv()
@@ -21,12 +21,8 @@ tag_to_filter = args.tag
 
 rw = ReadwiseReader(token=READWISE_TOKEN)
 
-documents = rw.get_documents(
-    params={
-        "location": "archive",
-        "updatedAfter": (datetime.now() - timedelta(days=14)).isoformat(),
-    })
+documents = rw.get_documents(params={"location": "later"})
 
-for d in islice(documents, 0, 100):
+for d in documents:
     if tag_to_filter in d.tags.keys():
         webbrowser.get("firefox").open_new_tab(d.source_url)
