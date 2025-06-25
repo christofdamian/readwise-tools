@@ -21,8 +21,9 @@ tag_to_filter = args.tag
 
 rw = ReadwiseReader(token=READWISE_TOKEN)
 
-documents = rw.get_documents(params={"location": "later"})
+documents = rw.get_documents(params={"location": "archive"})
 
 for d in documents:
-    if tag_to_filter in d.tags.keys():
+    if d.tags and tag_to_filter in d.tags.keys():
+        print(d.tags)
         webbrowser.get("firefox").open_new_tab(d.source_url)
