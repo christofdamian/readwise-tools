@@ -10,7 +10,19 @@ load_dotenv()
 POCKETCASTS_EMAIL = os.getenv("POCKETCASTS_EMAIL")
 POCKETCASTS_PASSWORD = os.getenv("POCKETCASTS_PASSWORD")
 READWISE_TOKEN = os.getenv("READWISE_TOKEN")
+STATE_FILE = "pocketcasts_transferred.txt"
 
+
+def load_transferred_episodes():
+    try:
+        with open(STATE_FILE, 'r') as f:
+            return set(line.strip() for line in f if line.strip())
+    except FileNotFoundError:
+        return set()
+
+def append_transferred_episode(uuid):
+    with open(STATE_FILE, 'a') as f:
+        f.write(uuid + '\n')
 
 def get_starred_episodes():
     client = PocketCast(email=POCKETCASTS_EMAIL, password=POCKETCASTS_PASSWORD)
@@ -39,11 +51,19 @@ def main():
         return
 
     rw = ReadwiseReader(token=READWISE_TOKEN)
-
+    transferred_uuids = load_transferred_episodes()
     episodes = get_starred_episodes()
 
+    new_transfers = 0
     for ep in episodes:
-        send_episode_to_readwise(ep, rw)
+        if ep.uuid not in transferred_uuids:
+            send_episode_to_readwise(ep, rw)
+            append_transferred_episode(ep.uuid)
+            new_transfers += 1
+        else:
+            print(f"Skipping already transferred: {ep.title}")
+    
+    print(f"Transferred {new_transfers} new episodes. Total tracked: {len(transferred_uuids) + new_transfers}")
 
 
 if __name__ == "__main__":
