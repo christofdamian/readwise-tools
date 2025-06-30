@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 from readwise import ReadwiseReader
 import argparse
+import logging
+logging.basicConfig()
+logging.getLogger().setLevel(logging.INFO)
 
 load_dotenv()
 READWISE_TOKEN = os.getenv("READWISE_TOKEN")
@@ -18,12 +21,9 @@ args = parser.parse_args()
 
 tag_to_filter = args.tag
 
-
 rw = ReadwiseReader(token=READWISE_TOKEN)
 
-documents = rw.get_documents(params={"location": "archive"})
+documents = rw.get_documents(params={"location": "later", "tag": tag_to_filter})
 
 for d in documents:
-    if d.tags and tag_to_filter in d.tags.keys():
-        print(d.tags)
-        webbrowser.get("firefox").open_new_tab(d.source_url)
+    webbrowser.get("firefox").open_new_tab(d.source_url)
