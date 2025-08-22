@@ -10,7 +10,7 @@ load_dotenv()
 POCKETCASTS_EMAIL = os.getenv("POCKETCASTS_EMAIL")
 POCKETCASTS_PASSWORD = os.getenv("POCKETCASTS_PASSWORD")
 READWISE_TOKEN = os.getenv("READWISE_TOKEN")
-STATE_FILE = "pocketcasts_transferred.txt"
+STATE_FILE = os.path.expanduser("~/.pocketcasts_transferred")
 
 
 def load_transferred_episodes():

@@ -11,7 +11,7 @@ load_dotenv()
 MASTODON_INSTANCE = os.getenv("MASTODON_INSTANCE")
 MASTODON_TOKEN = os.getenv("MASTODON_TOKEN")
 READWISE_TOKEN = os.getenv("READWISE_TOKEN")
-STATE_FILE = "mastodon_transferred.txt"
+STATE_FILE = os.path.expanduser("~/.mastodon_transferred")
 
 
 def load_transferred_bookmarks():
