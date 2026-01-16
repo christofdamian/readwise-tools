@@ -22,6 +22,7 @@ dependencies = [
 [project.scripts]
 mastodon-to-readwise = "readwise_tools.mastodon_to_readwise:main"
 pocketcasts-to-readwise = "readwise_tools.pocketcasts_to_readwise:main"
+readwise-export-links = "readwise_tools.readwise_export_links:main"
 readwise-feed-stats = "readwise_tools.readwise_feed_stats:main"
 readwise-open-links = "readwise_tools.readwise_open_links:main"
 readwise-tag-later = "readwise_tools.readwise_tag_later:main"
