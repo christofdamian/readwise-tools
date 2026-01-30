@@ -30,7 +30,7 @@ This is a Python package (`readwise-tools`) containing CLI tools for integrating
 - `pocketcasts-to-readwise` - Sync Pocket Casts starred episodes
 - `readwise-to-todoist` - Export tagged documents to Todoist
 - `readwise-open-links` - Open documents by tag in browser
-- `readwise-tag-later` - List documents in 'later' location
+- `readwise-tag-filter` - Tag documents matching filter criteria
 - `readwise-feed-stats` - Analyze RSS feed statistics
 
 ### Readwise Reader API - Critical Information

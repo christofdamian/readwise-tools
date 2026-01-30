@@ -25,7 +25,7 @@ pocketcasts-to-readwise = "readwise_tools.pocketcasts_to_readwise:main"
 readwise-export-links = "readwise_tools.readwise_export_links:main"
 readwise-feed-stats = "readwise_tools.readwise_feed_stats:main"
 readwise-open-links = "readwise_tools.readwise_open_links:main"
-readwise-tag-later = "readwise_tools.readwise_tag_later:main"
+readwise-tag-filter = "readwise_tools.readwise_tag_filter:main"
 readwise-to-todoist = "readwise_tools.readwise_to_todoist:main"
 
 [project.urls]
