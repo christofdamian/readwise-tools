@@ -10,6 +10,7 @@ import logging
 load_dotenv()
 
 READWISE_TOKEN = os.getenv("READWISE_TOKEN")
+BROWSER = os.getenv("BROWSER", "firefox")
 
 
 def main():
@@ -65,7 +66,7 @@ def main():
                 if not args.verbose:
                     print(f"Would open: {d.source_url}")
             else:
-                webbrowser.get("firefox").open_new_tab(d.source_url)
+                webbrowser.get(BROWSER).open_new_tab(d.source_url)
             opened_count += 1
 
         if args.dry_run:
