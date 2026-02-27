@@ -102,8 +102,12 @@ def main():
         except Exception as e:
             if all_documents:
                 print(f"Warning: Error during pagination after {len(all_documents)} docs: {e}")
+                print("Continuing with documents retrieved so far...")
             else:
-                raise
+                print(f"Warning: Error fetching from location '{args.location}': {e}")
+                if args.verbose:
+                    import traceback
+                    traceback.print_exc()
 
         if args.verbose:
             print(f"Received {len(all_documents)} documents from API")
