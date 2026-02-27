@@ -106,6 +106,27 @@ Options:
 Environment:
 - `BROWSER` - Browser to use (default: `firefox`)
 
+### readwise-archive-tag
+
+Archive Readwise Reader documents matching a given tag.
+
+```bash
+# Archive all documents tagged 'review' from 'later'
+readwise-archive-tag -t review
+
+# Dry run to preview what would be archived
+readwise-archive-tag -t review --dry-run --verbose
+
+# Archive tagged documents from 'new' location
+readwise-archive-tag -t cleanup -l new
+```
+
+Options:
+- `-t, --tag TAG` - Tag to filter by (required)
+- `-l, --location LOCATION` - Source location to fetch from: `new`, `later`, `feed`, `shortlist` (default: `later`)
+- `-d, --dry-run` - Show what would be archived without making changes
+- `-v, --verbose` - Show detailed information
+
 ### readwise-tag-filter
 
 Tag documents in Readwise Reader matching filter criteria.
