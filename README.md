@@ -1,3 +1,6 @@
+⚠️ **This repository has moved to Codeberg: https://codeberg.org/cdamian/readwise-tools**
+
+This GitHub repository is archived and no longer maintained here.
 # readwise-tools
 
 A collection of CLI tools for integrating various services with [Readwise Reader](https://readwise.io/read).
